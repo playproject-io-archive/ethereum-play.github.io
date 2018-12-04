@@ -1,0 +1,35 @@
+{
+  "private": true,
+  "name": "play-codecamp",
+  "version": "0.0.0",
+  "description": "ethereum play codecamp",
+  "main": "index.js",
+  "scripts": {
+    "start": "budo index.js:bundle.js --open --live",
+    "build": "browserify index.js > bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethereum-play/ethereum-play.github.io.git"
+  },
+  "keywords": [
+    "codecamp",
+    "skilltree",
+    "ethereum",
+    "play"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ethereum/play/issues"
+  },
+  "homepage": "https://github.com/ethereum-play/ethereum-play.github.io#readme",
+  "dependencies": {
+    "bel": "^6.0.0",
+    "csjs-inject": "^1.0.1",
+    "play-logo": "^4.0.3"
+  },
+  "devDependencies": {
+    "budo": "^11.5.0"
+  }
+}
