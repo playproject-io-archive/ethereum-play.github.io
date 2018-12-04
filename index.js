@@ -14,11 +14,15 @@ document.head.appendChild(style)
 
 const css = csjs`
   .logo {
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    padding: 5%;
-    background-color: #21252b;
+    box-sizing       : border-box;
+    width            : 100%;
+    height           : 100%;
+    padding          : 5%;
+    background-color : #21252b;
+    display          : flex;
+    flex-direction   : column;
+    align-items      : center;
+    justify-content  : center;
   }
 `
 var icon = logo({
@@ -29,12 +33,26 @@ var icon = logo({
     `hsla(${360*Math.random()},100%,60%,1)`,
   ]
 })
-icon.style = `
-  width: 100%;
-  height: 100%;
-  filter: drop-shadow( -5px -5px 500px hsla(${360*Math.random()},100%,60%,1) );
-`
-var el = bel`<div class=${css.logo}>${icon}</div>`
+function addShadow () {
+  icon.style = `
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(-5px -5px 500px hsla(${360*Math.random()},100%,60%,1));
+    transition: 2s filter linear;`
+  setTimeout(removeShadow, 2000)
+}
+function removeShadow () {
+  icon.style = `
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0px 0px 0px #21252b);
+    transition: 2s filter linear;`
+  setTimeout(addShadow, 2000)
+}
+setTimeout(addShadow, 2000)
+
+var link = 'https://github.com/ethereum/play'
+var el = bel`<a href=${link} target="_blank" class=${css.logo}>${icon}</a>`
 
 document.body.appendChild(el)
 
