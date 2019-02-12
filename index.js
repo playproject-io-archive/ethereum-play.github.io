@@ -59,7 +59,7 @@ document.body.appendChild(el)
 
 function getImages () {
   const pick1 = () => Math.random() < 0.75 ? '' :
-    'https://us.123rf.com/450wm/popaukropa/popaukropa1802/popaukropa180200092/95634477-blockchain-network-background-technology-block-chain-abstract-seamless-pattern.jpg'
+    'https://c2.staticflickr.com/2/1714/25721703222_3c19da395a_b.jpg'
   const pick2 = () => Math.random() < 0.75 ? '' :
     'https://i.imgur.com/Q4qAH30.jpg'
   const pick3 = () => Math.random() < 0.75 ? '' :
