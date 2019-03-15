@@ -14,16 +14,53 @@ style.textContent = [
 document.head.appendChild(style)
 
 const css = csjs`
+  .container {
+    box-sizing       : border-box;
+    display          : flex;
+    flex-direction   : column;
+    justify-content  : center;
+    height           : 100%;
+  }
   .logo {
     box-sizing       : border-box;
-    width            : 100%;
-    height           : 100%;
+    flex-grow        : 1;
     padding          : 5%;
     background-color : #21252b;
     display          : flex;
     flex-direction   : column;
     align-items      : center;
     justify-content  : center;
+  }
+  .presentation {
+    box-sizing       : border-box;
+    display          : flex;
+    flex-direction   : row;
+    flex-grow        : 1;
+    background-color : #21252b;
+  }
+  .image {
+    position         : relative;
+    flex-grow        : 1;
+    width            : 33%;
+    height           : 80%;
+    border           : 2px dashed white;
+    margin           : 20px;
+    overflow         : hidden;
+  }
+  .title {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    color: white;
+    background-color: rgba(30, 30, 30, 0.6);
+    font-size: 50px;
+    font-family: mono;
+    font-weight: 900;
+    padding: 10px;
+  }
+  .title:hover {
+    color: rgba(30, 30, 30, 0.6);
+    background-color: white;
   }
 `
 var icon = logo({
@@ -53,14 +90,30 @@ function removeShadow () {
 setTimeout(addShadow, 2000)
 
 var link = 'https://github.com/ethereum/play'
-var el = bel`<a href=${link} target="_blank" class=${css.logo}>${icon}</a>`
+var el = bel`<div class=${css.container}>
+  <a href=${link} target="_blank" class=${css.logo}>${icon}</a>
+  <div class=${css.presentation}>
+    <a class=${css.image} href="https://play.ethereum.org/workshop-solidity/" target="_blank">
+    <div class=${css.title}> workshop </div>
+    <img src="workshop.png">
+    </a>
+    <a class=${css.image} href="https://play.ethereum.org/play-editor/" target="_blank">
+    <div class=${css.title}> editor </div>
+    <img src="editor.png">
+    </a>
+    <a class=${css.image} href="https://github.com/ethereum/play/milestones?direction=asc&sort=title&state=open" target="_blank">
+    <div class=${css.title}> roadmap </div>
+    <img src="roadmap.png">
+    </a>
+  </div>
+</div>`
 
 document.body.appendChild(el)
 
 
 function getImages () {
   const pick1 = () => Math.random() < 0.75 ? '' :
-    'https://us.123rf.com/450wm/popaukropa/popaukropa1802/popaukropa180200092/95634477-blockchain-network-background-technology-block-chain-abstract-seamless-pattern.jpg'
+    'https://c2.staticflickr.com/2/1714/25721703222_3c19da395a_b.jpg'
   const pick2 = () => Math.random() < 0.75 ? '' :
     'https://i.imgur.com/Q4qAH30.jpg'
   const pick3 = () => Math.random() < 0.75 ? '' :
