@@ -15,11 +15,13 @@ document.head.appendChild(style)
 
 const css = csjs`
   .container {
+    position         : relative;
     box-sizing       : border-box;
     display          : flex;
     flex-direction   : column;
     justify-content  : center;
     height           : 100%;
+    overflow         : hidden;
   }
   .logo {
     box-sizing       : border-box;
@@ -30,19 +32,20 @@ const css = csjs`
     flex-direction   : column;
     align-items      : center;
     justify-content  : center;
+    height           : 67%;
   }
   .presentation {
     box-sizing       : border-box;
     display          : flex;
     flex-direction   : row;
     flex-grow        : 1;
+    height           : 33%;
     background-color : #21252b;
   }
   .image {
     position         : relative;
     flex-grow        : 1;
     width            : 33%;
-    height           : 80%;
     border           : 2px dashed white;
     margin           : 20px;
     overflow         : hidden;
