@@ -100,7 +100,7 @@ var el = bel`<div class=${css.container}>
     <div class=${css.title}> workshop </div>
     <img src="workshop.png">
     </a>
-    <a class=${css.image} href="https://play.ethereum.org/play-editor/" target="_blank">
+    <a class=${css.image} href="https://ethereum-play.github.io/editor-solidity/" target="_blank">
     <div class=${css.title}> editor </div>
     <img src="editor.png">
     </a>
