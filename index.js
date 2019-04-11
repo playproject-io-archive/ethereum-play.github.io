@@ -81,7 +81,7 @@ const css = csjs`
     display          : flex;
     flex-direction   : column;
     justify-content  : center;
-    height           : 100%;
+    max-height       : 100%;
     overflow         : hidden;
   }
   .logo {
