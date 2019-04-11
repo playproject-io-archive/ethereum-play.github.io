@@ -2,6 +2,45 @@ const bel = require('bel')
 const csjs = require('csjs-inject')
 const logo = require('play-logo')
 
+const skilltree = require('skilltree.js')
+const registry = require('url-registry')
+
+const crawler = require('./crawler.js')
+
+async function skilltrees (data, href) {
+  const element = bel`<div class=${css2.skilltree}></div>`
+  setTimeout(async () => {
+    const dag = await crawler(data)
+    skilltree(element, dag)
+  }, 0)
+  return element
+}
+const css2 = csjs`
+.skilltree {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}`
+
+;(async () => {
+  try {
+    const db = await registry(`r70vo-1554993396`, () => true)
+    // e.g. if (typeof url === 'string') return true
+    // // @TODO: check that the "URL" actually makes sense - otherwise, filter it out
+    // // @TODO: design or update `url-registry` so that data is always bound the URL
+    // // which issues the `put` command and if that url (=location.href) is illegal
+    // // don't make the request! - ...maybe allow disabeling via `validate(...)` ?
+    const data = await db.list()
+    const el = await skilltrees(data)
+    const container = document.querySelector('#skilltree')
+    // document.body.innerHTML = ''
+    container.appendChild(el)
+  } catch (e) {}
+})()
+
 document.title = 'play'
 
 const style = document.createElement('style')
@@ -13,7 +52,30 @@ style.textContent = [
 document.head.appendChild(style)
 
 const css = csjs`
+  .main {
+    display          : flex;
+    flex-grow        : 1;
+    margin           : 0;
+  }
   .container {
+    position         : relative;
+    box-sizing       : border-box;
+    display          : flex;
+    flex-direction   : column;
+    justify-content  : center;
+    height           : 100%;
+    overflow         : hidden;
+  }
+  .skilltree {
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: #21252b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container_logo {
+    flex-grow        : 1;
     position         : relative;
     box-sizing       : border-box;
     display          : flex;
@@ -93,7 +155,14 @@ setTimeout(addShadow, 2000)
 
 var link = 'https://github.com/ethereum/play'
 var el = bel`<div class=${css.container}>
-  <a href=${link} target="_blank" class=${css.logo}>${icon}</a>
+  <div class=${css.main}>
+    <div class=${css.container_logo}>
+      <a href=${link} target="_blank" class=${css.logo}>${icon}</a>
+    </div>
+    <div id="skilltree" class=${css.skilltree}>
+      <h1 class=${css.title} style="  top: 0; left: 0; position: relative;"> Curriculum </h1>
+    </div>
+  </div>
   <div class=${css.presentation}>
     <a class=${css.image} href="https://play.ethereum.org/workshop-solidity/" target="_blank">
     <div class=${css.title}> workshop </div>
