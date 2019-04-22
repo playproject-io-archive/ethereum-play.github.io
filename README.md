@@ -1,4 +1,4 @@
 # play
-ethereum education codecamp
+play ethereum codecamp
 
-https://play.ethereum.org
+https://ethereum-play.github.io
