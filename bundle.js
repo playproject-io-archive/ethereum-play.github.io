@@ -121,15 +121,16 @@ const css = csjs`
   overflow         : hidden;
 }
 .title {
-  position: absolute;
-  top: 30%;
-  left: 30%;
-  color: white;
-  background-color: rgba(30, 30, 30, 0.6);
-  font-size: 50px;
-  font-family: mono;
-  font-weight: 900;
-  padding: 10px;
+  position         : absolute;
+  top              : 30%;
+  left             : 15%;
+  color            : white;
+  background-color : rgba(30, 30, 30, 0.6);
+  font-size        : 50px;
+  font-family      : mono;
+  font-weight      : 900;
+  padding          : 10px;
+  text-align       : center;
 }
 .title:hover {
   color: rgba(30, 30, 30, 0.6);
@@ -140,9 +141,9 @@ function getImages () {
   const pick1 = () => Math.random() < 0.75 ? '' :
     'https://c2.staticflickr.com/2/1714/25721703222_3c19da395a_b.jpg'
   const pick2 = () => Math.random() < 0.75 ? '' :
-    'https://i.imgur.com/Q4qAH30.jpg'
+    'https://cdn.pixabay.com/photo/2018/02/04/09/09/art-3129359_960_720.jpg'
   const pick3 = () => Math.random() < 0.75 ? '' :
-    'https://i.imgur.com/sZK75ef.png'
+    'https://upload.wikimedia.org/wikipedia/commons/e/e5/Pieter_Bruegel_d._%C3%84._041b.jpg'
   var items = [
     // 'https://thumbs.dreamstime.com/t/seamless-pattern-background-ethereum-signs-vector-illustration-118033192.jpg',
     // 'http://cryptoventures.io/wp-content/uploads/2018/07/ximage-3375234_1280-550x275.png.pagespeed.ic.G-wZvuZdxH.png',
@@ -1052,6 +1053,7 @@ module.exports = function (h, opts) {
 
     if (tree[2].length > 2
     || (tree[2].length === 2 && /\S/.test(tree[2][1]))) {
+      if (opts.createFragment) return opts.createFragment(tree[2])
       throw new Error(
         'multiple root elements must be wrapped in an enclosing tag'
       )
@@ -1179,6 +1181,7 @@ module.exports = function (h, opts) {
     if (typeof x === 'function') return x
     else if (typeof x === 'string') return x
     else if (x && typeof x === 'object') return x
+    else if (x === null || x === undefined) return x
     else return concat('', x)
   }
 }
@@ -1186,9 +1189,6 @@ module.exports = function (h, opts) {
 function quot (state) {
   return state === ATTR_VALUE_SQ || state === ATTR_VALUE_DQ
 }
-
-var hasOwn = Object.prototype.hasOwnProperty
-function has (obj, key) { return hasOwn.call(obj, key) }
 
 var closeRE = RegExp('^(' + [
   'area', 'base', 'basefont', 'bgsound', 'br', 'col', 'command', 'embed',
@@ -1291,7 +1291,7 @@ function logo (opts) {
       <defs>
         ${urls.map((url, i) => url ? `
           <pattern id="img${i}" patternUnits="objectBoundingBox" width="1" height="1">
-            <image xlink:href="${url}" x="${i === 1 ? -1600 : 0}" y="${i === 1 ? -600 : 0}"/>
+            <image xlink:href="${url}" x="0" y="0"/>
           </pattern>
         ` : '').join('')}
       </defs>

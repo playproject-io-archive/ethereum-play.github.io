@@ -120,15 +120,16 @@ const css = csjs`
   overflow         : hidden;
 }
 .title {
-  position: absolute;
-  top: 30%;
-  left: 30%;
-  color: white;
-  background-color: rgba(30, 30, 30, 0.6);
-  font-size: 50px;
-  font-family: mono;
-  font-weight: 900;
-  padding: 10px;
+  position         : absolute;
+  top              : 30%;
+  left             : 15%;
+  color            : white;
+  background-color : rgba(30, 30, 30, 0.6);
+  font-size        : 50px;
+  font-family      : mono;
+  font-weight      : 900;
+  padding          : 10px;
+  text-align       : center;
 }
 .title:hover {
   color: rgba(30, 30, 30, 0.6);
