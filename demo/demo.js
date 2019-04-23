@@ -139,9 +139,9 @@ function getImages () {
   const pick1 = () => Math.random() < 0.75 ? '' :
     'https://c2.staticflickr.com/2/1714/25721703222_3c19da395a_b.jpg'
   const pick2 = () => Math.random() < 0.75 ? '' :
-    'https://i.imgur.com/Q4qAH30.jpg'
+    'https://cdn.pixabay.com/photo/2018/02/04/09/09/art-3129359_960_720.jpg'
   const pick3 = () => Math.random() < 0.75 ? '' :
-    'https://i.imgur.com/sZK75ef.png'
+    'https://upload.wikimedia.org/wikipedia/commons/e/e5/Pieter_Bruegel_d._%C3%84._041b.jpg'
   var items = [
     // 'https://thumbs.dreamstime.com/t/seamless-pattern-background-ethereum-signs-vector-illustration-118033192.jpg',
     // 'http://cryptoventures.io/wp-content/uploads/2018/07/ximage-3375234_1280-550x275.png.pagespeed.ic.G-wZvuZdxH.png',

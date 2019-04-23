@@ -27,11 +27,11 @@
   "dependencies": {
     "bel": "^6.0.0",
     "csjs-inject": "^1.0.1",
-    "play-logo": "^4.0.3",
+    "play-logo": "^4.0.4",
     "skilltree.js": "^0.5.0",
     "url-registry": "0.0.2"
   },
   "devDependencies": {
-    "budo": "^11.5.0"
+    "budo": "^11.6.2"
   }
 }
