@@ -140,7 +140,7 @@ function getImages () {
   const pick1 = () => Math.random() < 0.75 ? '' :
     'https://c2.staticflickr.com/2/1714/25721703222_3c19da395a_b.jpg'
   const pick2 = () => Math.random() < 0.75 ? '' :
-    'https://cdn.pixabay.com/photo/2018/02/04/09/09/art-3129359_960_720.jpg'
+    'https://i.imgur.com/UpFka9Q.jpg'
   const pick3 = () => Math.random() < 0.75 ? '' :
     'https://upload.wikimedia.org/wikipedia/commons/e/e5/Pieter_Bruegel_d._%C3%84._041b.jpg'
   var items = [
