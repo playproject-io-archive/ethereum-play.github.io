@@ -60,9 +60,9 @@ setTimeout(async () => {
   var el = bel`<div class=${css.container}>
     <a href=${link} target="_blank" class=${css.logo}>${icon}</a>
     <div class=${css.presentation}>
-    <a class=${css.image} href="https://ethereum-play.github.io/workshop-create-workshop/" target="_blank">
-      <div class=${css.title}> play on github </div>
-      <img class=${css.imagebox} src="demo/assets/github.png" style="width:100%;">
+    <a class=${css.image} href="https://github.com/ethereum/play" target="_blank">
+      <div class=${css.title}> contribute </div>
+      <div class="${css.imagebox} ${css.github}"></div>
     </a>
       <a class=${css.image} href="https://ethereum-play.github.io/editor-solidity/" target="_blank">
         <div class=${css.title}> solidity editor </div>
@@ -70,7 +70,7 @@ setTimeout(async () => {
       </a>
       <a class=${css.image} href="https://gitter.im/ethereum/play" target="_blank">
         <div class=${css.title}> chat with us </div>
-        <img class=${css.imagebox} src="demo/assets/gitter.png" style="width:160%;">
+        <div class="${css.imagebox} ${css.gitter}"></div>
       </a>
     </div>
   </div>`
@@ -128,18 +128,24 @@ const css = csjs`
   height           : 33%;
   background-color : #21252b;
 }
+.imagebox {
+  opacity          : 0.3;
+  z-index          : -1; 
+}
+.hoverImagebox {
+  opacity          : 1;
+}
 .image {
   position         : relative;
   flex-grow        : 1;
   width            : 33%;
-  border           : 3px dashed black;
   border-radius    : 2px;
   margin           : 30px;
   overflow         : hidden;
+  border           : 3px dashed white;
 }
-.imagebox {
-  opacity          : 0.3;
-  z-index          : -1; 
+.hoverImage {
+  border           : 3px dashed black;
 }
 .title {
   position         : absolute;
@@ -152,17 +158,29 @@ const css = csjs`
   font-weight      : 900;
   padding          : 10px;
   text-align       : center;
+  width: 100%;
   z-index          : 1;
-}
-.hoverImage {
-  border           : 3px dashed white;
 }
 .hovertitle {
   background-color : white;
   color            : black;
 }
-.hoverImagebox {
-  opacity          : 0.8;
+.gitter {
+  background-image: url(demo/assets/gitter2.png);
+  // background-position: 50% 10%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+}
+.github {
+  background-image: url(demo/assets/github.png);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
 }
 `
 function getImages () {
