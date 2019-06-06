@@ -130,7 +130,7 @@ const css = csjs`
 }
 .imagebox {
   opacity          : 0.3;
-  z-index          : -1; 
+  z-index          : -1;
 }
 .hoverImagebox {
   opacity          : 1;
