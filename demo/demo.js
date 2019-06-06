@@ -6,6 +6,8 @@ const orgpage = require('../')
 
 document.title = 'play'
 
+document.head.innerHTML = `<link rel="icon" type="image/png" href="demo/assets/play-logo-icon.png" />`
+
 const style = document.createElement('style')
 style.textContent = [
   '*, *:before, *:after { box-sizing: inherit; }',
@@ -39,7 +41,7 @@ function removeShadow () {
 }
 setTimeout(addShadow, 2000)
 
-var link = 'https://github.com/ethereum/play'
+var link = 'https://ethereum-play.github.io/editor-solidity/'
 
 
 // @DONE: add standalone play-skilltree page
@@ -57,17 +59,17 @@ setTimeout(async () => {
   var el = bel`<div class=${css.container}>
     <a href=${link} target="_blank" class=${css.logo}>${icon}</a>
     <div class=${css.presentation}>
+    <a class=${css.image} href="https://ethereum-play.github.io/workshop-create-workshop/" target="_blank">
+      <div class=${css.title}> play on github </div>
+      <img class=${css.imagebox} src="demo/assets/github.png" style="width:100%;">
+    </a>
       <a class=${css.image} href="https://ethereum-play.github.io/editor-solidity/" target="_blank">
         <div class=${css.title}> solidity editor </div>
-        <img src="demo/assets/editor.png">
+        <img class=${css.imagebox} src="demo/assets/editor.png">
       </a>
-      <a class=${css.image} href="https://ethereum-play.github.io/workshop-create-workshop/" target="_blank">
-        <div class=${css.title}> create workshop </div>
-        <img src="demo/assets/workshop.png">
-      </a>
-      <a class=${css.image} href="https://ethereum-play.github.io/skilltree/" target="_blank">
-        <div class=${css.title}> learn solidity </div>
-        <img src="demo/assets/skilltree.png">
+      <a class=${css.image} href="https://gitter.im/ethereum/play" target="_blank">
+        <div class=${css.title}> chat with us </div>
+        <img class=${css.imagebox} src="demo/assets/gitter.png" style="width:160%;">
       </a>
     </div>
   </div>`
@@ -75,6 +77,20 @@ setTimeout(async () => {
   // <div class=${css.title}> workshop </div>
   // <img src="workshop.png">
   // </a>
+  ;[...el.querySelectorAll(`.${css.image}`)].forEach((el, i, all) => {
+    el.onmouseenter = ev => {
+      const [title, imagebox] = el.children
+      el.classList.add(css.hoverImage)
+      imagebox.classList.add(css.hoverImagebox)
+      title.classList.add(css.hovertitle)
+    }
+    el.onmouseleave = ev => {
+      const [title, imagebox] = el.children
+      el.classList.remove(css.hoverImage)
+      imagebox.classList.remove(css.hoverImagebox)
+      title.classList.remove(css.hovertitle)
+    }
+  })
   document.body.appendChild(el)
 }, 0)
 
@@ -115,25 +131,37 @@ const css = csjs`
   position         : relative;
   flex-grow        : 1;
   width            : 33%;
-  border           : 2px dashed white;
+  border           : 3px dashed black;
+  border-radius    : 2px;
   margin           : 30px;
   overflow         : hidden;
 }
+.imagebox {
+  opacity          : 0.3;
+  z-index          : -1; 
+}
 .title {
   position         : absolute;
-  top              : 30%;
-  left             : 15%;
+  bottom           : 0;
+  right            : 0;
   color            : white;
-  background-color : rgba(30, 30, 30, 0.6);
-  font-size        : 50px;
-  font-family      : mono;
+  background-color : rgba(30, 30, 30, 1);
+  font-size        : 30px;
+  font-family      : monospace;
   font-weight      : 900;
   padding          : 10px;
   text-align       : center;
+  z-index          : 1;
 }
-.title:hover {
-  color: rgba(30, 30, 30, 0.6);
-  background-color: white;
+.hoverImage {
+  border           : 3px dashed white;
+}
+.hovertitle {
+  background-color : white;
+  color            : black;
+}
+.hoverImagebox {
+  opacity          : 0.8;
 }
 `
 function getImages () {
