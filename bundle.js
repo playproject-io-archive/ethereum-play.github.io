@@ -60,8 +60,8 @@ setTimeout(async () => {
   var el = bel`<div class=${css.container}>
     <a href=${link} target="_blank" class=${css.logo}>${icon}</a>
     <div class=${css.presentation}>
-    <a class=${css.image} href="https://github.com/ethereum/play" target="_blank">
-      <div class=${css.title}> contribute </div>
+    <a class=${css.image} href="https://github.com/ethereum-play" target="_blank">
+      <div class=${css.title}> organisation </div>
       <div class="${css.imagebox} ${css.github}"></div>
     </a>
       <a class=${css.image} href="https://ethereum-play.github.io/editor-solidity/" target="_blank">
@@ -69,7 +69,7 @@ setTimeout(async () => {
         <img class=${css.imagebox} src="demo/assets/editor.png">
       </a>
       <a class=${css.image} href="https://gitter.im/ethereum/play" target="_blank">
-        <div class=${css.title}> contact us </div>
+        <div class=${css.title}> community </div>
         <div class="${css.imagebox} ${css.gitter}"></div>
       </a>
     </div>
