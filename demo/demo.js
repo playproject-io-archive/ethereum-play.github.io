@@ -135,16 +135,16 @@ const css = csjs`
   opacity          : 1;
 }
 .image {
+  box-sizing       : border-box;
   position         : relative;
   flex-grow        : 1;
   width            : 33%;
   border-radius    : 2px;
   margin           : 30px;
   overflow         : hidden;
-  border           : 3px dashed white;
 }
 .hoverImage {
-  border           : 3px dashed black;
+  border           : 0;
 }
 .title {
   position         : absolute;
