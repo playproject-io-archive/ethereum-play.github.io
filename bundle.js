@@ -69,7 +69,7 @@ setTimeout(async () => {
         <img class=${css.imagebox} src="demo/assets/editor.png">
       </a>
       <a class=${css.image} href="https://gitter.im/ethereum/play" target="_blank">
-        <div class=${css.title}> chat with us </div>
+        <div class=${css.title}> contact us </div>
         <div class="${css.imagebox} ${css.gitter}"></div>
       </a>
     </div>
