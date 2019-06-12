@@ -1,4 +1,4 @@
 # play
-play ethereum codecamp
+landingpage
 
 https://playproject.io
