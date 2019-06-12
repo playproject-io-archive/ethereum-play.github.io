@@ -2,7 +2,7 @@
   "private": true,
   "name": "play-codecamp",
   "version": "0.0.0",
-  "description": "play ethereum codecamp",
+  "description": "landingpage",
   "main": "src/orgpage.js",
   "scripts": {
     "start": "budo demo/demo.js:bundle.js --dir . --title $npm_package_name --force-default-index --ssl --live --open",
