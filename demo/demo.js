@@ -59,17 +59,17 @@ setTimeout(async () => {
   var el = bel`<div class=${css.container}>
     <a href=${link} target="_blank" class=${css.logo}>${icon}</a>
     <div class=${css.presentation}>
-    <a class=${css.image} href="https://github.com/ethereum-play" target="_blank">
+    <a class=${css.image} href="https://github.com/playproject-io" target="_blank">
       <div class=${css.title}> organisation </div>
       <div class="${css.imagebox} ${css.github}"></div>
+    </a>
+    <a class=${css.image} href="https://smartcontract.codes" target="_blank">
+      <div class=${css.title}> smartcontract.codes </div>
+      <div class="${css.imagebox} ${css.smartcontractcodes}"></div>
     </a>
       <a class=${css.image} href="https://ethereum-play.github.io/editor-solidity/" target="_blank">
         <div class=${css.title}> solidity editor </div>
         <img class=${css.imagebox} src="demo/assets/editor.png">
-      </a>
-      <a class=${css.image} href="https://gitter.im/ethereum/play" target="_blank">
-        <div class=${css.title}> community </div>
-        <div class="${css.imagebox} ${css.gitter}"></div>
       </a>
     </div>
   </div>`
@@ -164,8 +164,8 @@ const css = csjs`
   background-color : white;
   color            : black;
 }
-.gitter {
-  background-image: url(demo/assets/gitter2.png);
+.smartcontractcodes {
+  background-image: url(demo/assets/smartcontractcodes.PNG);
   // background-position: 50% 10%;
   background-size: 100%;
   background-repeat: no-repeat;
