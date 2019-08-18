@@ -41,7 +41,7 @@ function removeShadow () {
 }
 setTimeout(addShadow, 2000)
 
-var link = 'https://ethereum-play.github.io/editor-solidity/'
+var link = 'https://smartcontract.codes'
 
 
 // @DONE: add standalone play-skilltree page
